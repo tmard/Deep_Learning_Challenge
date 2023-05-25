@@ -39,20 +39,36 @@ From the Alphabet Soup’s business team, the CSV contained more than 34,000 org
 
 **First Model:**
 
-* There were two hidden layers with 80 and 30 neurons. The hidden layer activation functions of ‘relu’ was used as this is the first go-to for a model. 
-* The output node was 1 as this is a binary classifier model with only one output; was the funding application successful, yes or no. The activation function that was used was ‘sigmoid’ as this model output is a binary classification between 0 and 1. 
+* There were two hidden layers with 80 and 30 neurons. The hidden layer activation functions of ‘ReLU’ was used as this is the first go-to for a model. ReLU is faster to compute and does not activate all the neurons at the same time. 
+* The output node was 1 as this is a binary classifier model with only one output; was the funding application successful, yes or no. The activation function that was used was ‘Sigmoid’ as this model output is a binary classification between 0 and 1. 
+
+![model_1_layers](Images/model_1_layers.png)  
+
+
 * The model prediction accuracy was below the threshold of 75%. Therefore, further optimization is required. 
+
+![model_1](Images/model_1.png)  
+
 
 
 **Optimization Models**
 * As noted above, in the preprocessing stage, `NAME` was added back for binning purposes.
 * An automated model optimizer was used to obtain the most accurate model possible via a Keras Sequential Model. 
 * Hyperparameter options were provided and a search for the best hyperparameters was performed.
-* Ultimately, the best optimized model was Optimization_2, which achieved a model accuracy of 80%, exceeding the 75% goal. 
-    * Of note, all Optimization Models exceeded the goal of 75%, using sigmoid activation with differing input nodes and hidden layers. 
+
+![optimization_3_hyperparameters](Images/optimization_3_hyperparameters.png)  
+
+
+* Ultimately, the best optimized model was Optimization 3, which achieved a model accuracy of 79.78%, exceeding the 75% goal. 
+    * Of note, all Optimization Models exceeded the goal of 75%.
+
+![optimization_3_accuracy](Images/optimization_3_accuracy.png)  
 
 
 
 ## Summary
 
 
+Overall, Optimization # performed the best. This neural network trained model was automatically optimized using the keras-tuner method. It achieved nearly an 80% prediction accuracy with a 0.4341 loss. It used a tanh activation function with 5 hidden layers and 34 training epochs. This automatic training model performed better than the initial model. Additionally, the `Name` column was pertinent in maintaining the goal of greater than 75% accuracy, demonstrating that shaping datasets during the preprocessing stage is extremely important for training the model. 
+
+An alternate possibility to using a Neural Network is Random Forest. Random Forest is less expensive, does not require graphics processing to finish training and requires less preprocessing and training is simpler. Neural Networks require increased resources and more data to be effective. 
